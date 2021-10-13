@@ -21,8 +21,8 @@ package org.mineap.nicovideo4as.loader.api {
             variables.targets = type.typeString;
             variables.fields = "description,startTime,contentId,lastResBody,lengthSeconds,mylistCounter,commentCounter,thumbnailUrl,title,viewCounter";
             variables._sort = order.orderStr + sort.sortTypeString;
-            variables._offset = page;
-            variables._limit = 100;
+            variables._offset = (page - 1) * 32;
+            variables._limit = 32;
             variables._context = "niconico-lib";
 
             var req: URLRequest = new URLRequest(SEARCH_API_ACCESS_URL);

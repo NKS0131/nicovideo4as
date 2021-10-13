@@ -31,7 +31,7 @@ package org.mineap.nicovideo4as.analyzer {
                 var videoId: String = obj.contentId;
 
                 // 直近のコメント数件
-                var lastResBody: String = obj.lastResBody;
+                var lastResBody: String = (obj.lastResBody === null) ? "" : obj.lastResBody;
 
                 // 再生時間("6:28")
                 var lengthStr: String = Math.floor(obj.lengthSeconds / 60) + ":" + ("0" + obj.lengthSeconds % 60).slice(-2);
