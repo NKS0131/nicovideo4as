@@ -20,4 +20,5 @@ This software is distributed under [MIT License][].
 
 [NNDD-5ch]:https://github.com/nndd-reboot/NNDD
 [LICENSE0]:https://github.com/SSW-SCIENTIFIC/nicovideo4as/blob/master/LICENSE0
+[LICENSE1]:https://github.com/SSW-SCIENTIFIC/nicovideo4as/blob/master/LICENSE1
 [MIT License]:https://github.com/SSW-SCIENTIFIC/nicovideo4as/blob/master/LICENSE
