@@ -131,7 +131,7 @@ package org.mineap.nicovideo4as {
             var watchURL: URLRequest = new URLRequest(mUrl);
             watchURL.method = "GET";
             watchURL.followRedirects = true;
-            watchURL.userAgent = "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.99 Safari/537.36";
+            watchURL.userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36";
 
             if (watchHarmful) {
                 var variables: URLVariables = new URLVariables();
