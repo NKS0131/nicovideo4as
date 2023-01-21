@@ -40,6 +40,7 @@ package org.mineap.nicovideo4as.loader {
 
             var request: URLRequest = new URLRequest(url);
             request.data = variables;
+            request.followRedirects = true;
 
             this.load(request);
 
