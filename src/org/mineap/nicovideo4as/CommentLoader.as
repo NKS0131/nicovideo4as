@@ -303,8 +303,9 @@ package org.mineap.nicovideo4as {
             } catch (error: Error) {
                 trace(error.getStackTrace());
             }
-            dispatchEvent(new ErrorEvent(COMMENT_GET_FAIL, false, false, "fail:analyze"));
-
+            dispatchEvent(new Event(COMMENT_GET_SUCCESS));
+            //TODO: 強制的に成功を返す仮対応
+            // dispatchEvent(new ErrorEvent(COMMENT_GET_FAIL, false, false, "fail:analyze"));
         }
 
         /**
