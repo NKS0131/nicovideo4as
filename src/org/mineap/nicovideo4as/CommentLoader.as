@@ -205,23 +205,28 @@ package org.mineap.nicovideo4as {
 
                     // 普通のコメント
 
-                    xml = new XML("<thread />");
-                    xml.@res_from = (this._count * -1);
-                    if (this._isOwnerComment) {
-                        xml.@fork = 1;
-                    }
-                    xml.@version = "20061206";
-                    xml.@thread = this._getflvAnalyzer.threadId;
-                    xml.@user_id = this._getflvAnalyzer.userId;
-                    if (this._when != null) {
-                        //unix timeで指定
-                        xml.@when = int(this._when.time / 1000);
-                    }
-                    if (this._waybackkey != null) {
-                        xml.@waybackkey = this._waybackkey;
-                    }
+                    try {
+                        xml = new XML("<thread />");
+                        xml.@res_from = (this._count * -1);
+                        if (this._isOwnerComment) {
+                            xml.@fork = 1;
+                        }
+                        xml.@version = "20061206";
+                        xml.@thread = this._getflvAnalyzer.threadId;
+                        xml.@user_id = this._getflvAnalyzer.userId;
+                        if (this._when != null) {
+                            //unix timeで指定
+                            xml.@when = int(this._when.time / 1000);
+                        }
+                        if (this._waybackkey != null) {
+                            xml.@waybackkey = this._waybackkey;
+                        }
 
-                    xml = new XML("<packet />").appendChild(xml);
+                        xml = new XML("<packet />").appendChild(xml);
+                    }
+                    catch(error: Error) {
+                        // TODO: エラー握り潰し
+                    }
 
                 } else {
 
@@ -234,24 +239,27 @@ package org.mineap.nicovideo4as {
                     </packet>
                     */
 
+                    try {
+                        xml = new XML("<packet />");
 
-                    xml = new XML("<packet />");
+                        var thread: XML = new XML("<thread />");
+                        thread.@thread = this._getflvAnalyzer.threadId;
+                        thread.@version = "20090904";
+                        thread.@user_id = this._getflvAnalyzer.userId;
 
-                    var thread: XML = new XML("<thread />");
-                    thread.@thread = this._getflvAnalyzer.threadId;
-                    thread.@version = "20090904";
-                    thread.@user_id = this._getflvAnalyzer.userId;
+                        var thread_leaves: XML = new XML("<thread_leaves />");
+                        thread_leaves.@thread = this._getflvAnalyzer.threadId;
+                        thread_leaves.@user_id = this._getflvAnalyzer.userId;
 
-                    var thread_leaves: XML = new XML("<thread_leaves />");
-                    thread_leaves.@thread = this._getflvAnalyzer.threadId;
-                    thread_leaves.@user_id = this._getflvAnalyzer.userId;
+                        var l: int = int(this._getflvAnalyzer.l / 60) + 1;
+                        thread_leaves.appendChild("0-" + l + ":100");
 
-                    var l: int = int(this._getflvAnalyzer.l / 60) + 1;
-                    thread_leaves.appendChild("0-" + l + ":100");
-
-                    xml.appendChild(thread);
-                    xml.appendChild(thread_leaves);
-
+                        xml.appendChild(thread);
+                        xml.appendChild(thread_leaves);
+                    }
+                    catch (error: Error) {
+                        // TODO: エラー握り潰し
+                    }
                 }
             }
 
@@ -314,8 +322,10 @@ package org.mineap.nicovideo4as {
          *
          */
         private function errorEventHandler(event: ErrorEvent): void {
-            dispatchEvent(new ErrorEvent(COMMENT_GET_FAIL, false, false, event.text));
-            close();
+            dispatchEvent(new Event(COMMENT_GET_SUCCESS));
+            // TODO: 強制的に成功を返す仮対応
+            // dispatchEvent(new ErrorEvent(COMMENT_GET_FAIL, false, false, event.text));
+            // close();
         }
 
         /**
