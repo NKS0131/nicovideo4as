@@ -14,7 +14,6 @@ package org.mineap.nicovideo4as {
 
     import org.mineap.nicovideo4as.analyzer.GetFlvResultAnalyzer;
     import org.mineap.nicovideo4as.loader.api.ApiDmcAccess;
-    import org.mineap.nicovideo4as.loader.api.ApiGetFlvAccess;
     import org.mineap.nicovideo4as.model.VideoType;
 
     /**
@@ -113,7 +112,6 @@ package org.mineap.nicovideo4as {
          *
          */
         private function _getVideo(): void {
-//			trace(unescape(decodeURIComponent(_apiGetFlvAccess.data)));
 
             this._dmcInfoAnalyzer = new DmcInfoAnalyzer();
             this._dmcResultAnalyzer = new DmcResultAnalyzer();
