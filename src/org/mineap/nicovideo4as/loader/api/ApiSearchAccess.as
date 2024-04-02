@@ -8,7 +8,7 @@ package org.mineap.nicovideo4as.loader.api {
     import org.mineap.nicovideo4as.model.search.SearchType;
 
     public class ApiSearchAccess extends URLLoader {
-        public static const SEARCH_API_ACCESS_URL: String = "https://api.search.nicovideo.jp/api/v2/snapshot/video/contents/search";
+        public static const SEARCH_API_ACCESS_URL: String = "https://snapshot.search.nicovideo.jp/api/v2/snapshot/video/contents/search";
 
         public function ApiSearchAccess(request: URLRequest = null) {
             super(request);
