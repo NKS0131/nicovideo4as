@@ -41,7 +41,7 @@ package org.mineap.nicovideo4as {
         /**
          *
          */
-        public static const API_MYLIST_ADD: String = "http://www.nicovideo.jp/api/mylist/add";
+        public static const API_MYLIST_ADD: String = "https://www.nicovideo.jp/api/mylist/add";
 
         private var _urlLoader: URLLoader = null;
 

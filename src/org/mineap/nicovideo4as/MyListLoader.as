@@ -28,7 +28,7 @@ package org.mineap.nicovideo4as {
 
         private static const itemIdPattern: RegExp = new RegExp("<input type=\"hidden\" name=\"item_id\" value=\"(.+)\">", "ig");
 
-        public static const NICO_MYLIST_API_URL: String = "http://www.nicovideo.jp/mylist_add/video/";
+        public static const NICO_MYLIST_API_URL: String = "https://www.nicovideo.jp/mylist_add/video/";
 
         public static const GET_MYLISTGROUP_SUCCESS: String = "GetMyListGroupSuccess";
 

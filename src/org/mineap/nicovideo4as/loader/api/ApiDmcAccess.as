@@ -23,7 +23,7 @@ package org.mineap.nicovideo4as.loader.api {
             getAPIRequest = new URLRequest(apiUrl + "/?_format=json");
             getAPIRequest.method = "POST";
             getAPIRequest.data = JSON.stringify(session);
-            getAPIRequest.requestHeaders = [new URLRequestHeader("Accept", "application/json"), new URLRequestHeader("Content-Type", "application/json"), new URLRequestHeader("Referer", "http://www.nicovideo.jp/watch/" + movieId), new URLRequestHeader("Origin", "http://www.nicovideo.jp")];
+            getAPIRequest.requestHeaders = [new URLRequestHeader("Accept", "application/json"), new URLRequestHeader("Content-Type", "application/json"), new URLRequestHeader("Referer", "https://www.nicovideo.jp/watch/" + movieId), new URLRequestHeader("Origin", "https://www.nicovideo.jp")];
 
             this.load(getAPIRequest);
         }
@@ -34,7 +34,7 @@ package org.mineap.nicovideo4as.loader.api {
             getAPIRequest = new URLRequest(this.apiUrl + "/" + sessionId + "?_format=json&_method=PUT");
             getAPIRequest.method = "POST";
             getAPIRequest.data = JSON.stringify(session);
-            getAPIRequest.requestHeaders = [new URLRequestHeader("Accept", "application/json"), new URLRequestHeader("Content-Type", "application/json"), new URLRequestHeader("Referer", "http://www.nicovideo.jp/watch/" + this.movieId), new URLRequestHeader("Origin", "http://www.nicovideo.jp")];
+            getAPIRequest.requestHeaders = [new URLRequestHeader("Accept", "application/json"), new URLRequestHeader("Content-Type", "application/json"), new URLRequestHeader("Referer", "https://www.nicovideo.jp/watch/" + this.movieId), new URLRequestHeader("Origin", "https://www.nicovideo.jp")];
 
             this.load(getAPIRequest);
         }

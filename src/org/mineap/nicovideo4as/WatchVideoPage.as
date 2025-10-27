@@ -76,9 +76,9 @@ package org.mineap.nicovideo4as {
         private static const harmful: String = "watch_harmful=1";
 
         /**
-         * "http://www.nicovideo.jp/watch/"を表す定数です
+         * "https://www.nicovideo.jp/watch/"を表す定数です
          */
-        public static const WATCH_VIDEO_PAGE_URL: String = "http://www.nicovideo.jp/watch/";
+        public static const WATCH_VIDEO_PAGE_URL: String = "https://www.nicovideo.jp/watch/";
 
         /**
          *

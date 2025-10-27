@@ -61,7 +61,7 @@ package org.mineap.nicovideo4as {
         /**
          * ニコニコ動画のトップページURLです。
          */
-        public static const TOP_PAGE_URL: String = "http://www.nicovideo.jp/";
+        public static const TOP_PAGE_URL: String = "https://www.nicovideo.jp/";
 
         /**
          *

@@ -11,7 +11,7 @@ package org.mineap.nicovideo4as.loader {
      */
     public class PublicMyListLoader extends URLLoader {
 
-        public static const MYLIST_PAGE_URL: String = "http://www.nicovideo.jp/mylist/";
+        public static const MYLIST_PAGE_URL: String = "https://www.nicovideo.jp/mylist/";
 
         /**
          *

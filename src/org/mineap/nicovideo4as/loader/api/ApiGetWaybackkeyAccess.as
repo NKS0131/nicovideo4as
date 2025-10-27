@@ -10,7 +10,7 @@ package org.mineap.nicovideo4as.loader.api {
      */
     public class ApiGetWaybackkeyAccess extends URLLoader {
 
-        public static const NICO_API_GET_WAYBACKKEY_URL: String = "http://flapi.nicovideo.jp/api/getwaybackkey";
+        public static const NICO_API_GET_WAYBACKKEY_URL: String = "https://flapi.nicovideo.jp/api/getwaybackkey";
 
         private var _url: String = NICO_API_GET_WAYBACKKEY_URL;
 
