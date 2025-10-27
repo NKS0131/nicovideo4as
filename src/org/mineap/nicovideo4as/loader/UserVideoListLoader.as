@@ -11,7 +11,7 @@ package org.mineap.nicovideo4as.loader {
      */
     public class UserVideoListLoader extends URLLoader {
 
-        public static const USER_VIDEO_LIST_URL_PRE: String = "http://www.nicovideo.jp/user/";
+        public static const USER_VIDEO_LIST_URL_PRE: String = "https://www.nicovideo.jp/user/";
 
         public static const USER_VIDEO_LIST_URL_SUF: String = "/video";
 

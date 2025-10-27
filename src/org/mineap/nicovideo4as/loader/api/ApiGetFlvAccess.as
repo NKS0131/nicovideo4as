@@ -11,7 +11,7 @@ package org.mineap.nicovideo4as.loader.api {
      */
     public class ApiGetFlvAccess extends URLLoader {
 
-        public static const NICO_API_GET_FLV: String = "http://flapi.nicovideo.jp/api/getflv/";
+        public static const NICO_API_GET_FLV: String = "https://flapi.nicovideo.jp/api/getflv/";
 
         private var _url: String = NICO_API_GET_FLV;
 

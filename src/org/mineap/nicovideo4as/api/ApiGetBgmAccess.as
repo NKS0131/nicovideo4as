@@ -37,7 +37,7 @@ package org.mineap.nicovideo4as.api {
         public function getAPIResult(threadID: String): void {
             //ニコ割等のURLを取得するためにニコニコ動画のAPIにアクセスする。
             var getAPIResult: URLRequest;
-            var url: String = "http://flapi.nicovideo.jp/api/getbgm?v=" + threadID + "&as3=1";
+            var url: String = "https://flapi.nicovideo.jp/api/getbgm?v=" + threadID + "&as3=1";
             getAPIResult = new URLRequest(url);
             getAPIResult.method = "GET";
 

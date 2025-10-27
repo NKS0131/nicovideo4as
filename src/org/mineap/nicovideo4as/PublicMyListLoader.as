@@ -33,7 +33,7 @@ package org.mineap.nicovideo4as {
 
 //			feed://www.nicovideo.jp/mylist/7121837?rss=2.0
 
-            var request: URLRequest = new URLRequest("http://www.nicovideo.jp/mylist/" + myListId + "?rss=2.0");
+            var request: URLRequest = new URLRequest("https://www.nicovideo.jp/mylist/" + myListId + "?rss=2.0");
 
             this._myListLoader.load(request);
 

@@ -16,7 +16,7 @@ package org.mineap.nicovideo4as.loader {
      */
     public class MyListGroupLoader extends URLLoader {
 
-        public static const NICO_MYLIST_GROUP_API_URL: String = "http://www.nicovideo.jp/api/mylistgroup/list";
+        public static const NICO_MYLIST_GROUP_API_URL: String = "https://www.nicovideo.jp/api/mylistgroup/list";
 
         /**
          *
