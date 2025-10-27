@@ -1,7 +1,12 @@
 package org.mineap.nicovideo4as.analyzer {
     /**
-     * getThreadKeyにアクセスした際の応答を解析します。
-     *
+     * getThreadKey APIレスポンスを解析するクラス
+     * 
+     * getThreadKey APIは公式動画のコメント取得時に必要なスレッドキーを提供します。
+     * このクラスは返されたkey=value形式のパラメータを解析し、アクセス可能にします。
+     * 
+     * レスポンス形式: threadkey=xxx&force_184=xxx
+     * 
      * @author shiraminekeisuke(MineAP)
      *
      */
