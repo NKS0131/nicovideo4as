@@ -507,6 +507,10 @@ package org.mineap.nicovideo4as {
          * @return Decoded string
          */
         private function decodeHtmlEntities(str: String): String {
+            if (str == null) {
+                return null;
+            }
+            // Decode &amp; last to prevent double-decoding
             return str
                     .replace(/&quot;/g, "\"")
                     .replace(/&lt;/g, "<")
