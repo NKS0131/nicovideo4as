@@ -491,24 +491,27 @@ package org.mineap.nicovideo4as {
                 jsonObj = JSON.parse(HtmlUtil.convertSpecialCharacterNotIncludedString(jsonStr));
             } else if (obj3 != null && obj3[1] != null) {
                 // New API format with data-client-data
-                var jsonStr3: String = obj3[1]
-                        .replace(/&quot;/g, "\"")
-                        .replace(/&lt;/g, "<")
-                        .replace(/&gt;/g, ">")
-                        .replace(/&amp;/g, "&");
-                jsonObj = JSON.parse(jsonStr3);
+                jsonObj = JSON.parse(decodeHtmlEntities(obj3[1]));
             } else if (obj2 != null && obj2[1] != null) {
-                var jsonStr2: String = obj2[1]
-                        .replace(/&quot;/g, "\"")
-                        .replace(/&lt;/g, "<")
-                        .replace(/&gt;/g, ">")
-                        .replace(/&amp;/g, "&");
-                jsonObj = JSON.parse(jsonStr2);
+                jsonObj = JSON.parse(decodeHtmlEntities(obj2[1]));
             } else {
                 return null;
             }
 
             return jsonObj;
+        }
+
+        /**
+         * Decode HTML entities in a string
+         * @param str String with HTML entities
+         * @return Decoded string
+         */
+        private function decodeHtmlEntities(str: String): String {
+            return str
+                    .replace(/&quot;/g, "\"")
+                    .replace(/&lt;/g, "<")
+                    .replace(/&gt;/g, ">")
+                    .replace(/&amp;/g, "&");
         }
 
         /**
