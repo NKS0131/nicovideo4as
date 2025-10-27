@@ -14,8 +14,12 @@ package org.mineap.nicovideo4as.api {
 
     /**
      * ニコニコ動画のAPI(getbgm)へのアクセスを担当するクラスです。
+     * 
+     * 注意: getbgm APIは廃止されました。
+     * ニコ割機能は現在利用できない可能性があります。
      *
      * @author shiraminekeisuke(MineAP)
+     * @deprecated getbgm APIは廃止されました
      *
      */ public class ApiGetBgmAccess extends EventDispatcher {
 
@@ -31,11 +35,16 @@ package org.mineap.nicovideo4as.api {
 
         /**
          * ニコ割等のURLを取得するためのAPIへのアクセスを行う
+         * 
+         * 注意: このAPIエンドポイントは廃止されました。
+         * 後方互換性のために残されていますが、正常に動作しない可能性があります。
+         * 
          * @param threadID
          *
          */
         public function getAPIResult(threadID: String): void {
             //ニコ割等のURLを取得するためにニコニコ動画のAPIにアクセスする。
+            // 注意: このエンドポイント(flapi)は廃止されました
             var getAPIResult: URLRequest;
             var url: String = "https://flapi.nicovideo.jp/api/getbgm?v=" + threadID + "&as3=1";
             getAPIResult = new URLRequest(url);

@@ -1,6 +1,14 @@
 package org.mineap.nicovideo4as.analyzer {
     /**
-     *
+     * getWaybackkey APIレスポンスを解析するクラス
+     * 
+     * getWaybackkey APIは過去のコメントを取得する際に必要なwaybackkeyを提供します。
+     * このクラスはAPIレスポンスからwaybackkeyを抽出します。
+     * 
+     * レスポンス形式: waybackkey=xxxxx
+     * 
+     * 注意: APIエンドポイントが nvapi.nicovideo.jp に変更されました。
+     * 
      * @author shiraminekeisuke
      *
      */

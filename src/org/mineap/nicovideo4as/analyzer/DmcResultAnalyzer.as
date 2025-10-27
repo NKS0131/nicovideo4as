@@ -1,4 +1,23 @@
 package org.mineap.nicovideo4as.analyzer {
+    /**
+     * DMCセッション作成のレスポンスを解析するクラス
+     * 
+     * DMC APIからのレスポンスJSON (セッション情報) を解析し、
+     * セッションIDや動画URLなどの重要な情報を抽出します。
+     * 
+     * レスポンス構造:
+     * {
+     *   "data": {
+     *     "session": {
+     *       "id": "セッションID",
+     *       "content_uri": "動画のURL",
+     *       ...
+     *     }
+     *   }
+     * }
+     * 
+     * @author Various contributors
+     */
     public class DmcResultAnalyzer {
         private var _result: Object;
 

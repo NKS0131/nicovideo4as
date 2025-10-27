@@ -117,7 +117,8 @@ package org.mineap.nicovideo4as {
         }
 
         /**
-         *
+         * 動画ページにアクセスして動画情報を取得する
+         * 
          * @param videoId 開く動画のID(スレッドIDでも可能)
          * @param watchHarmful 有害動画に指定されている動画を強制的に開くかどうか
          *
@@ -131,7 +132,8 @@ package org.mineap.nicovideo4as {
             var watchURL: URLRequest = new URLRequest(mUrl);
             watchURL.method = "GET";
             watchURL.followRedirects = true;
-            watchURL.userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36";
+            // 最新のUser-Agentに更新 (Chrome 120)
+            watchURL.userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
 
             if (watchHarmful) {
                 var variables: URLVariables = new URLVariables();
@@ -435,7 +437,9 @@ package org.mineap.nicovideo4as {
 
 
         /**
-         *
+         * WatchVideoPageの読み込み完了時に呼ばれるハンドラ
+         * 動画ページのHTMLからJSON形式のデータを抽出してパースする
+         * 
          * @param event
          *
          */
@@ -452,12 +456,21 @@ package org.mineap.nicovideo4as {
                 return;
             }
 
-            // Handle new API format - check if data is wrapped in a top-level container
-            // The new API may have different top-level structure, but should contain video or flashvars
+            // 新しいAPI形式の判定 - dataプロパティをチェック
+            // 新しいAPIでは data.response というネストされた構造になっている可能性がある
+            if (this._jsonObj.hasOwnProperty("data")) {
+                // Unwrap data if it exists
+                if (this._jsonObj.data.hasOwnProperty("response")) {
+                    this._jsonObj = this._jsonObj.data.response;
+                }
+            }
+
+            // HTML5形式(新API)の判定
             if (this._jsonObj.hasOwnProperty("video")) {
                 this._isHTML5 = true;
             }
 
+            // Flash形式(旧API)の判定
             if (this._jsonObj.hasOwnProperty("flashvars")) {
                 this._isFlash = true;
             }
@@ -466,9 +479,14 @@ package org.mineap.nicovideo4as {
         }
 
         /**
-         *
-         * @param str
-         * @return
+         * HTMLから動画データのJSONオブジェクトを抽出する
+         * 複数の形式に対応:
+         * 1. watchAPIDataContainer (旧形式)
+         * 2. js-initial-watch-data data-api-data (中間形式)
+         * 3. js-initial-watch-data data-client-data (新形式)
+         * 
+         * @param str HTMLソースコード
+         * @return JSONオブジェクト、抽出失敗時はnull
          *
          */
         private function createJsonObject(str: String): Object {
@@ -478,8 +496,11 @@ package org.mineap.nicovideo4as {
 
             var jsonObj: Object = null;
 
+            // 旧形式: watchAPIDataContainer
             var regexp: RegExp = new RegExp("<div id=\"watchAPIDataContainer\" style=\"display:none\">(.+?)</div>");
+            // 中間形式: data-api-data属性
             var regexp2: RegExp = new RegExp("<div id=\"js-initial-watch-data\" data-api-data=\"([^\"]+)\"[^>]*>");
+            // 新形式: data-client-data属性
             var regexp3: RegExp = new RegExp("<div id=\"js-initial-watch-data\" data-client-data=\"([^\"]+)\"[^>]*>");
 
             var obj: Object = regexp.exec(str);
@@ -487,12 +508,14 @@ package org.mineap.nicovideo4as {
             var obj3: Object = regexp3.exec(str);
 
             if (obj != null && obj[1] != null) {
+                // 旧形式の処理
                 var jsonStr: String = obj[1];
                 jsonObj = JSON.parse(HtmlUtil.convertSpecialCharacterNotIncludedString(jsonStr));
             } else if (obj3 != null && obj3[1] != null) {
-                // New API format with data-client-data
+                // 新形式 (data-client-data) の優先処理
                 jsonObj = JSON.parse(decodeHtmlEntities(obj3[1]));
             } else if (obj2 != null && obj2[1] != null) {
+                // 中間形式 (data-api-data) の処理
                 jsonObj = JSON.parse(decodeHtmlEntities(obj2[1]));
             } else {
                 return null;

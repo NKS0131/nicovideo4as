@@ -4,13 +4,19 @@ package org.mineap.nicovideo4as.loader.api {
     import flash.net.URLVariables;
 
     /**
-     *
+     * 過去ログ取得用のwaybackkeyを取得するAPIへのアクセスを担当するクラスです。
+     * 
+     * 注意: flapiエンドポイントは廃止されました。
+     * 
      * @author shiraminekeisuke(MineAP)
+     * @deprecated flapiエンドポイントは廃止されました。
      *
      */
     public class ApiGetWaybackkeyAccess extends URLLoader {
 
-        public static const NICO_API_GET_WAYBACKKEY_URL: String = "https://flapi.nicovideo.jp/api/getwaybackkey";
+        // 注意: このエンドポイントは廃止されました
+        // 代替エンドポイントに変更しました
+        public static const NICO_API_GET_WAYBACKKEY_URL: String = "https://nvapi.nicovideo.jp/v1/comment/getwaybackkey";
 
         private var _url: String = NICO_API_GET_WAYBACKKEY_URL;
 

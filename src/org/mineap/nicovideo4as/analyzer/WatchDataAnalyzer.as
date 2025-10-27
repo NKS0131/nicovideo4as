@@ -1,6 +1,19 @@
 package org.mineap.nicovideo4as.analyzer {
     import org.mineap.nicovideo4as.WatchVideoPage;
 
+    /**
+     * 動画ページ(WatchPage)のJSON APIデータを解析するクラス
+     * 
+     * Niconico動画の視聴ページから取得したJSON形式のAPIデータを解析し、
+     * アクセス可能な形式で保持する。
+     * 
+     * 対応するAPI形式:
+     * - HTML5形式 (js-initial-watch-data data-api-data)
+     * - 新形式 (js-initial-watch-data data-client-data)
+     * - 旧形式 (watchAPIDataContainer) - 後方互換性のため
+     * 
+     * @author Various contributors
+     */
     public class WatchDataAnalyzer {
         private var _result: Object;
         private var _isHTML5: Boolean = true;
