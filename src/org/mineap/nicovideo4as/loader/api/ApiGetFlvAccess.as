@@ -5,12 +5,18 @@ package org.mineap.nicovideo4as.loader.api {
 
     /**
      * ニコニコ動画のAPI(getflv)へのアクセスを担当するクラスです。
+     * 
+     * 注意: このAPIは廃止されました。WatchDataAnalyzerを使用してください。
+     * このクラスは後方互換性のために残されています。
      *
      * @author shiraminekeisuke(MineAP)
+     * @deprecated このAPIは廃止されました。WatchDataAnalyzerとWatchDataAnalyzerGetFlvAdapterを使用してください。
      *
      */
     public class ApiGetFlvAccess extends URLLoader {
 
+        // 注意: このエンドポイントは廃止されました
+        // WatchDataAnalyzerを使用してwatchページからデータを取得してください
         public static const NICO_API_GET_FLV: String = "https://flapi.nicovideo.jp/api/getflv/";
 
         private var _url: String = NICO_API_GET_FLV;
