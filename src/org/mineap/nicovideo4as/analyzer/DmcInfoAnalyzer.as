@@ -1,4 +1,20 @@
 package org.mineap.nicovideo4as.analyzer {
+    /**
+     * DMC (Direct Media Cloud) 配信情報を解析するクラス
+     * 
+     * Niconicoの新しい動画配信システム(DMC)のセッション情報を解析し、
+     * 動画URLの取得やセッション作成に必要なパラメータを生成する。
+     * 
+     * DMCは従来のSmile Serverに代わる動画配信システムで、
+     * HLS (HTTP Live Streaming) や HTTP プログレッシブダウンロードに対応している。
+     * 
+     * 主な機能:
+     * - DMC配信情報の妥当性チェック
+     * - HLS/HTTP配信の対応状況確認
+     * - セッション作成用パラメータの生成
+     * 
+     * @author Various contributors
+     */
     public class DmcInfoAnalyzer {
         private var _result: Object;
 

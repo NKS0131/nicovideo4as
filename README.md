@@ -5,6 +5,20 @@ This is an ActionScript library for accessing nicovideo.jp API, maintained only 
 
 **NOT ACTIVELY MAINTAINED.**
 
+## Important: API Updates
+
+Niconico's APIs have been updated. Please see [API_UPDATES.md](API_UPDATES.md) for details on:
+- Deprecated APIs (getflv, getwaybackkey, getbgm)
+- Migration guide to new API format
+- Current API endpoints and usage
+
+## Key Changes
+
+- **flapi.nicovideo.jp** endpoints are deprecated
+- Use `WatchVideoPage` + `WatchDataAnalyzer` for video information
+- Supports both old and new JSON data formats
+- Updated User-Agent to latest Chrome version
+
 
 Authors
 -------

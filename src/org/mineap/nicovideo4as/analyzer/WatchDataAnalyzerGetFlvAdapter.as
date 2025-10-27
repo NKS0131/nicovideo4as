@@ -3,6 +3,19 @@ package org.mineap.nicovideo4as.analyzer {
 
     import org.mineap.nicovideo4as.model.NgUp;
 
+    /**
+     * WatchDataAnalyzerの結果をGetFlvResultAnalyzer形式に変換するアダプタークラス
+     * 
+     * このクラスは新しいWatchDataAnalyzer (HTML5/JSON形式) の結果を、
+     * 旧来のGetFlvResultAnalyzer形式のインターフェースで扱えるようにする。
+     * 
+     * 使用方法:
+     * 1. WatchDataAnalyzerで動画ページを解析
+     * 2. このアダプターでwrap()を呼び出し
+     * 3. GetFlvResultAnalyzerと同じインターフェースで利用可能
+     * 
+     * @author Various contributors
+     */
     public class WatchDataAnalyzerGetFlvAdapter extends GetFlvResultAnalyzer {
         private var watchDataAnalyzer: WatchDataAnalyzer;
         private var getflvResultAnalyzer: GetFlvResultAnalyzer;
