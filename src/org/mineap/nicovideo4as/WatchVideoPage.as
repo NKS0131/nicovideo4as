@@ -510,7 +510,7 @@ package org.mineap.nicovideo4as {
             if (str == null) {
                 return null;
             }
-            // Decode &amp; last to prevent double-decoding
+            // Decode &amp; last to prevent double-decoding of other entities
             return str
                     .replace(/&quot;/g, "\"")
                     .replace(/&lt;/g, "<")
