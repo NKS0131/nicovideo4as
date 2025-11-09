@@ -41,7 +41,7 @@ package org.mineap.nicovideo4as {
         /**
          * ニコニコ動画のログインURLです。
          */
-        public static const LOGIN_URL: String = "https://secure.nicovideo.jp/secure/login?site=niconico";
+        public static const LOGIN_URL: String = "https://account.nicovideo.jp/api/v1/login";
 
         /**
          * 多段階認証
